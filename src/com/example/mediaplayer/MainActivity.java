@@ -26,6 +26,17 @@ public class MainActivity extends ActionBarActivity {
 			}
         	
         });
+        
+        Button playlistsButton = (Button)findViewById(R.id.playlistsButton);
+        playlistsButton.setOnClickListener(new OnClickListener(){
+
+			@Override
+			public void onClick(View v) {
+				Intent playlistsActivityIntent = new Intent(MainActivity.this, PlaylistsActivity.class);
+				startActivity(playlistsActivityIntent);
+			}
+        	
+        });
     }
 
 

@@ -35,6 +35,10 @@
             android:name=".VideoPlayerActivity"
             android:label="@string/title_activity_video_player" >
         </activity>
+        <activity
+            android:name=".PlaylistsActivity"
+            android:label="@string/title_activity_playlists" >
+        </activity>
     </application>
 
 </manifest>

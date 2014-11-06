@@ -8,5 +8,6 @@
     <string name="title_activity_video_player">VideoPlayerActivity</string>
     <string name="title_activity_player">Player</string>
     <string name="title_activity_video_plaer">VideoPlaer</string>
+    <string name="title_activity_playlists">PlaylistsActivity</string>
 
 </resources>
