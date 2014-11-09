@@ -21,35 +21,21 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button filesButton = (Button) findViewById(R.id.filesButton);
-        filesButton.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				Intent filesActivityIntent = new Intent(MainActivity.this, FilesActivity.class);
-				startActivity(filesActivityIntent);
-			}
-        	
-        });
-        
-        Button playlistsButton = (Button)findViewById(R.id.playlistsButton);
-        playlistsButton.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				Intent playlistsActivityIntent = new Intent(MainActivity.this, PlaylistsActivity.class);
-				startActivity(playlistsActivityIntent);
-			}
-        	
-        });
-        
         myCaretaker = new Caretaker();
 		Context context = getApplicationContext();
 		Toast toast = Toast.makeText(context, Integer.toString(myCaretaker.myMementos.size()), Toast.LENGTH_SHORT);
 		toast.show();
     }
 
+	public void songList(View v) {
+		Intent filesActivityIntent = new Intent(MainActivity.this, FilesActivity.class);
+		startActivity(filesActivityIntent);
+	}
 
+	public void exit(View v) {
+		finish();
+	}
+	
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

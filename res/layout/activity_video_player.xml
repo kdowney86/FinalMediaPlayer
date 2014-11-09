@@ -8,14 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mediaplayer.VideoPlayerActivity" >
 
-    <VideoView
-        android:id="@+id/videoView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="94dp" />
-
     <MediaController
         android:id="@+id/mediaController1"
         android:layout_width="wrap_content"
@@ -49,5 +41,12 @@
         android:layout_alignBottom="@+id/pauseButtonVideo"
         android:layout_alignRight="@+id/videoView1"
         android:text="Stop" />
+
+    <VideoView
+        android:id="@+id/videoView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/playButtonVideo"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
