@@ -1,9 +1,6 @@
 package com.example.mediaplayer;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
-import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
