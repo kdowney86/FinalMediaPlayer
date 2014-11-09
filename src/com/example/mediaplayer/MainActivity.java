@@ -1,6 +1,7 @@
 package com.example.mediaplayer;
 
 import android.support.v7.app.ActionBarActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,9 +9,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
+	
+	protected Memento myMemento;
+	protected static Caretaker myCaretaker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +42,11 @@ public class MainActivity extends ActionBarActivity {
 			}
         	
         });
+        
+        myCaretaker = new Caretaker();
+		Context context = getApplicationContext();
+		Toast toast = Toast.makeText(context, Integer.toString(myCaretaker.myMementos.size()), Toast.LENGTH_SHORT);
+		toast.show();
     }
 
 
@@ -57,5 +67,13 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+    
+    public static Caretaker getCaretaker() {
+    	return myCaretaker;
+    }
+    
+    public static void writeCaretaker() {
+    	myCaretaker.writeFile();
     }
 }

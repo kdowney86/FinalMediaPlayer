@@ -28,8 +28,6 @@ public class PlaylistsActivity extends ActionBarActivity {
 			    alertDialog.setTitle("Playlist Creation");
 
 			    alertDialog.setMessage("Please Select a Playlist Type");
-			    
-			    alertDialog.show();
 
 			    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Audio Playlist", new DialogInterface.OnClickListener() {
 
@@ -39,7 +37,7 @@ public class PlaylistsActivity extends ActionBarActivity {
 
 			    } }); 
 
-			    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Video Playlist", new DialogInterface.OnClickListener() {
+			    alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Cancel", new DialogInterface.OnClickListener() {
 
 			      public void onClick(DialogInterface dialog, int id) {
 
@@ -47,13 +45,14 @@ public class PlaylistsActivity extends ActionBarActivity {
 
 			    }}); 
 
-			    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel", new DialogInterface.OnClickListener() {
+			    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Video Playlist", new DialogInterface.OnClickListener() {
 
 			      public void onClick(DialogInterface dialog, int id) {
 
 			        //...
 
 			    }});
+			    alertDialog.show();
 			}
 			
 		});

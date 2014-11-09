@@ -22,6 +22,7 @@ public class AudioPlayerActivity extends ActionBarActivity {
 	private Button audioPauseButton;
 	private Button audioStopButton;
 	private String audioPath;
+	private int time = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,10 @@ public class AudioPlayerActivity extends ActionBarActivity {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+		restoreFromMemento();
+		
+		mp.seekTo(time);
 		mp.start();
 		
 		audioPlayButton.setOnClickListener(new OnClickListener(){
@@ -101,6 +106,33 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		Toast toast = Toast.makeText(context, audioPath, Toast.LENGTH_SHORT);
 		toast.show();
 	}
+	
+	public void onBackPressed() {
+		this.currentState.pause();
+		this.finish();
+	}
+	
+	public void onStop() {
+		this.currentState.pause();
+		this.onDestroy();
+	}
+	
+    public void setTime(int time) {
+        this.time = time;
+    }
+ 
+    public Memento saveToMemento() {
+        return new Memento(Integer.toString(this.time), this.audioPath);
+    }
+ 
+    public void restoreFromMemento() {
+    	for (int u = 0; u < MainActivity.getCaretaker().myMementos.size(); u++) {
+    		Memento memento = MainActivity.getCaretaker().myMementos.get(u);
+    		if (memento.getPath().equals(audioPath)) {
+    			setTime(Integer.parseInt(memento.getState()));
+    		}
+    	}
+    }
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -144,6 +176,9 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		public void pause() {
 			myAudioPlayerActivity.setState(new AudioPauseState(myAudioPlayerActivity));
 			myAudioPlayerActivity.mp.pause();
+			String pos = Integer.toString(myAudioPlayerActivity.mp.getCurrentPosition());
+			MainActivity.getCaretaker().addMemento(new Memento(audioPath, pos));
+			MainActivity.writeCaretaker();
 		}
 
 		@Override
@@ -201,7 +236,9 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		public void pause() {
 			myAudioPlayerActivity.setState(new AudioPauseState(myAudioPlayerActivity));
 			myAudioPlayerActivity.mp.pause();
-			
+			String pos = Integer.toString(myAudioPlayerActivity.mp.getCurrentPosition());
+			MainActivity.getCaretaker().addMemento(new Memento(audioPath, pos));
+			MainActivity.writeCaretaker();
 		}
 
 		@Override
