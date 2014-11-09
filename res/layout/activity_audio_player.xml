@@ -15,20 +15,24 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
 
-    <ImageView
-        android:id="@+id/imageView1"
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/tableRow1"
-        android:layout_alignLeft="@+id/seekBar1"
-        android:src="@drawable/icon" />
+        android:layout_above="@+id/imageView1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/imageView1"
+        android:text="Artist - Song"
+        android:textColor="#F00"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TableRow
         android:id="@+id/tableRow1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_above="@+id/seekBar1"
-        android:layout_alignRight="@+id/imageView1" >
+        android:layout_alignRight="@+id/seekBar1" >
 
         <Button
             android:id="@+id/playButtonAudio"
@@ -49,5 +53,13 @@
             android:layout_marginRight="18dp"
             android:background="@drawable/pause" />
     </TableRow>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tableRow1"
+        android:layout_centerVertical="true"
+        android:src="@drawable/icon" />
 
 </RelativeLayout>
