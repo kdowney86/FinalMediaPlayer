@@ -246,6 +246,10 @@ public class AudioPlayerActivity extends ActionBarActivity {
 			Context context = getApplicationContext();
 			Toast toast = Toast.makeText(context, "audio is already stopped", Toast.LENGTH_SHORT);
 			toast.show();
-		}
+		}		
+	}
+	
+	public void exit(View v){
+		this.onDestroy();
 	}
 }

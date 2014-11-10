@@ -31,18 +31,7 @@ public class MainActivity extends ActionBarActivity {
 			}
         	
         });
-        
-        Button playlistsButton = (Button)findViewById(R.id.playlistsButton);
-        playlistsButton.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				Intent playlistsActivityIntent = new Intent(MainActivity.this, PlaylistsActivity.class);
-				startActivity(playlistsActivityIntent);
-			}
-        	
-        });
-        
+                
         myCaretaker = new Caretaker();
 		Context context = getApplicationContext();
 		Toast toast = Toast.makeText(context, Integer.toString(myCaretaker.myMementos.size()), Toast.LENGTH_SHORT);

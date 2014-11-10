@@ -2,45 +2,82 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/black"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.mediaplayer.AudioPlayerActivity" >
 
-    <Button
-        android:id="@+id/pauseButtonAudio"
+    <SeekBar
+        android:id="@+id/musicSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+
+    <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/playButtonAudio"
-        android:layout_centerHorizontal="true"
-        android:text="Pause" />
+        android:layout_above="@+id/imageView1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/imageView1"
+        android:text="Artist - Song"
+        android:textColor="#F00"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_above="@+id/seekBar1"
+        android:layout_alignRight="@+id/seekBar1" >
+    </TableRow>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/musicSeekBar"
+        android:layout_centerVertical="true"
+        android:src="@drawable/icon" />
 
     <Button
         android:id="@+id/stopButtonAudio"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/pauseButtonAudio"
-        android:layout_alignBottom="@+id/pauseButtonAudio"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="28dp"
-        android:text="Stop" />
+        android:layout_width="78dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/seekBarUpdate"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/stop" />
 
-    <SeekBar
-        android:id="@+id/seekBar1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/pauseButtonAudio"
-        android:layout_centerHorizontal="true" />
+    <Button
+        android:id="@+id/pauseButtonAudio"
+        android:layout_width="78dp"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/stopButtonAudio"
+        android:layout_alignRight="@+id/musicSeekBar"
+        android:layout_alignTop="@+id/stopButtonAudio"
+        android:background="@drawable/pause" />
 
     <Button
         android:id="@+id/playButtonAudio"
+        android:layout_width="77dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/seekBarUpdate"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/imageView1"
+        android:background="@drawable/play" />
+
+    <TextView
+        android:id="@+id/seekBarUpdate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"
-        android:layout_marginRight="20dp"
-        android:layout_toLeftOf="@+id/pauseButtonAudio"
-        android:text="Play" />
+        android:layout_above="@+id/musicSeekBar"
+        android:layout_alignLeft="@+id/musicSeekBar"
+        android:layout_alignRight="@+id/playButtonAudio"
+        android:text="0.00"
+        android:textColor="#F00" />
 
 </RelativeLayout>
