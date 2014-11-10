@@ -10,7 +10,7 @@
     tools:context="com.example.mediaplayer.AudioPlayerActivity" >
 
     <SeekBar
-        android:id="@+id/seekBar1"
+        android:id="@+id/musicSeekBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />
@@ -33,33 +33,51 @@
         android:layout_height="50dp"
         android:layout_above="@+id/seekBar1"
         android:layout_alignRight="@+id/seekBar1" >
-
-        <Button
-            android:id="@+id/playButtonAudio"
-            android:layout_width="77dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/play" />
-
-        <Button
-            android:id="@+id/stopButtonAudio"
-            android:layout_width="78dp"
-            android:layout_height="match_parent"
-            android:background="@drawable/stop" />
-
-        <Button
-            android:id="@+id/pauseButtonAudio"
-            android:layout_width="78dp"
-            android:layout_height="match_parent"
-            android:layout_marginRight="18dp"
-            android:background="@drawable/pause" />
     </TableRow>
 
     <ImageView
         android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/tableRow1"
+        android:layout_alignRight="@+id/musicSeekBar"
         android:layout_centerVertical="true"
         android:src="@drawable/icon" />
+
+    <Button
+        android:id="@+id/stopButtonAudio"
+        android:layout_width="78dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/seekBarUpdate"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/stop" />
+
+    <Button
+        android:id="@+id/pauseButtonAudio"
+        android:layout_width="78dp"
+        android:layout_height="match_parent"
+        android:layout_alignBottom="@+id/stopButtonAudio"
+        android:layout_alignRight="@+id/musicSeekBar"
+        android:layout_alignTop="@+id/stopButtonAudio"
+        android:background="@drawable/pause" />
+
+    <Button
+        android:id="@+id/playButtonAudio"
+        android:layout_width="77dp"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/seekBarUpdate"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_below="@+id/imageView1"
+        android:background="@drawable/play" />
+
+    <TextView
+        android:id="@+id/seekBarUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/musicSeekBar"
+        android:layout_alignLeft="@+id/musicSeekBar"
+        android:layout_alignRight="@+id/playButtonAudio"
+        android:text="0.00"
+        android:textColor="#F00" />
 
 </RelativeLayout>

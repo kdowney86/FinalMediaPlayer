@@ -12,10 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AudioPlayerActivity extends ActionBarActivity {
-	
+
 	private State currentState;
 	private MediaPlayer mp;
 	private Button audioPlayButton;
@@ -23,19 +25,21 @@ public class AudioPlayerActivity extends ActionBarActivity {
 	private Button audioStopButton;
 	private String audioPath;
 	private int time = 0;
+	private SeekBar seek;
+	private TextView seekBarUpdate;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_audio_player);
-		
+
 		Intent myIntent = getIntent();
 		audioPath = myIntent.getStringExtra("path");
-		
+		seekBarUpdate = (TextView)findViewById(R.id.seekBarUpdate);
 		audioPlayButton = (Button)findViewById(R.id.playButtonAudio);
 		audioPauseButton = (Button)findViewById(R.id.pauseButtonAudio);
 		audioStopButton = (Button)findViewById(R.id.stopButtonAudio);
-		
+		seek = (SeekBar)findViewById(R.id.musicSeekBar);
 		currentState = new AudioPlayState(this);
 		mp = new MediaPlayer();
 		try {
@@ -54,39 +58,39 @@ public class AudioPlayerActivity extends ActionBarActivity {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
+
 		restoreFromMemento();
-		
+
 		mp.seekTo(time);
 		mp.start();
-		
+
 		audioPlayButton.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				AudioPlayerActivity.this.currentState.play();
 			}
-			
+
 		});
-		
+
 		audioPauseButton.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				AudioPlayerActivity.this.currentState.pause();
 			}
-			
+
 		});
-		
+
 		audioStopButton.setOnClickListener(new OnClickListener(){
 
 			@Override
 			public void onClick(View v) {
 				AudioPlayerActivity.this.currentState.stop();
 			}
-			
+
 		});
-		
+
 		try {
 			mp.setDataSource(audioPath);
 		} catch (IllegalArgumentException e) {
@@ -106,33 +110,48 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		Toast toast = Toast.makeText(context, audioPath, Toast.LENGTH_SHORT);
 		toast.show();
 	}
-	
+
 	public void onBackPressed() {
 		this.currentState.pause();
 		this.finish();
 	}
-	
+
 	public void onStop() {
 		this.currentState.pause();
 		this.onDestroy();
 	}
-	
-    public void setTime(int time) {
-        this.time = time;
-    }
- 
-    public Memento saveToMemento() {
-        return new Memento(Integer.toString(this.time), this.audioPath);
-    }
- 
-    public void restoreFromMemento() {
-    	for (int u = 0; u < MainActivity.getCaretaker().myMementos.size(); u++) {
-    		Memento memento = MainActivity.getCaretaker().myMementos.get(u);
-    		if (memento.getPath().equals(audioPath)) {
-    			setTime(Integer.parseInt(memento.getState()));
-    		}
-    	}
-    }
+
+	public void setTime(int time) {
+		this.time = time;
+	}
+
+	public Memento saveToMemento() {
+		return new Memento(Integer.toString(this.time), this.audioPath);
+	}
+
+	public void restoreFromMemento() {
+		for (int u = 0; u < MainActivity.getCaretaker().myMementos.size(); u++) {
+			Memento memento = MainActivity.getCaretaker().myMementos.get(u);
+			if (memento.getPath().equals(audioPath)) {
+				setTime(Integer.parseInt(memento.getState()));
+			}
+		}
+	}
+
+	private int doSomeTasks(){
+		if(mp!=null){
+			int i=mp.getCurrentPosition();
+			int t=mp.getDuration();
+			if(t!=0){
+				int d=(i*100)/t;
+
+				return d;}
+			else return 0;
+
+		}
+		return 0;
+
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -152,15 +171,15 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	
+
 	public void setState(State s) {
 		this.currentState = s;
 	}
-	
+
 	public class AudioPlayState implements State {
-		
+
 		AudioPlayerActivity myAudioPlayerActivity;
-		
+
 		public AudioPlayState(AudioPlayerActivity v) {
 			this.myAudioPlayerActivity = v;
 		}
@@ -188,11 +207,11 @@ public class AudioPlayerActivity extends ActionBarActivity {
 			myAudioPlayerActivity.mp.pause();
 		}
 	}
-	
+
 	public class AudioPauseState implements State {
-		
+
 		AudioPlayerActivity myAudioPlayerActivity;
-		
+
 		public AudioPauseState(AudioPlayerActivity v) {
 			this.myAudioPlayerActivity = v;
 		}
@@ -217,11 +236,11 @@ public class AudioPlayerActivity extends ActionBarActivity {
 			myAudioPlayerActivity.mp.pause();
 		}
 	}
-	
+
 	public class AudioStopState implements State {
-		
+
 		AudioPlayerActivity myAudioPlayerActivity;
-		
+
 		public AudioStopState(AudioPlayerActivity v) {
 			this.myAudioPlayerActivity = v;
 		}
