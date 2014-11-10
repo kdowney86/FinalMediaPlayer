@@ -10,15 +10,6 @@
     android:background="@android:color/black">
 
     <Button
-        android:id="@+id/filesButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="132dp"
-        android:background="@drawable/songlist"/>
-
-    <Button
         android:id="@+id/bExit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,5 +18,23 @@
         android:layout_marginBottom="134dp"
         android:background="@drawable/exit"
         android:onClick="exit" />
+
+    <Button
+        android:id="@+id/filesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bExit"
+        android:layout_alignLeft="@+id/bExit"
+        android:layout_marginBottom="88dp"
+        android:background="@drawable/songlist" />
+
+    <Button
+        android:id="@+id/nowPlayingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bExit"
+        android:layout_alignLeft="@+id/filesButton"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/nowplaying" />
 
 </RelativeLayout>
