@@ -124,8 +124,9 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		public void run() { 
 			seekUpdation(); 
 		} 
-	}; 
-
+	};
+	
+	//updates seek bar and timer
 	public void seekUpdation() { 
 		int i = mp.getCurrentPosition();
 		seekbar.setProgress(i);
