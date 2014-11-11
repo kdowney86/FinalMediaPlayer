@@ -6,33 +6,37 @@ import java.util.List;
 public class Song {
 
 	private String name;
-	   private String artist;
-	   private String year;
-	   private List<Song> songGroup;
+	private List<Song> songGroup;
 
-	   // constructor
-	   public Song(String name, String artist, String year) {
-	      this.name = name;
-	      this.artist = artist;
-	      this.year = year;
-	      songGroup = new ArrayList<Song>();
-	   }
+	// constructor
+	public Song(String name) {
+		this.name = name;
+		songGroup = new ArrayList<Song>();
+	}
 
-	   public void add(Song e) {
-	      songGroup.add(e);
-	   }
+	public Song() {
+		// TODO Auto-generated constructor stub
+		this.name = "";
+		songGroup = new ArrayList<Song>();
+	}
 
-	   public void remove(Song e) {
-		   songGroup.remove(e);
-	   }
+	public void add(Song e) {
+		songGroup.add(e);
+	}
 
-	   public List<Song> songGroup(){
-	     return songGroup;
-	   }
+	public void remove(Song e) {
+		songGroup.remove(e);
+	}
+	
+	public Song get(int pos){		
+		return songGroup.get(pos);		
+	}
 
-	   public String toString(){
-	      return ("Song :[ Name : "+ name 
-	      +", artist : "+ artist + ", year :"
-	      + year +" ]");
-	   }
+	public List<Song> songGroup(){
+		return songGroup;
+	}
+
+	public String toString(){
+		return name;
+	}
 }
