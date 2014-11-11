@@ -20,7 +20,7 @@ public class Caretaker {
 			try {
 				String currentLine;
 				
-				FileInputStream myReader = new FileInputStream("/sdcard/download/test.txt");
+				FileInputStream myReader = new FileInputStream("/sdcard/download/data.txt");
 				BufferedReader bfr = new BufferedReader(new InputStreamReader(myReader));
 				int count = 0;
 				String path = "";

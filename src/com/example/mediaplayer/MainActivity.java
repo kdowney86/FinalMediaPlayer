@@ -33,9 +33,6 @@ public class MainActivity extends ActionBarActivity {
         });
                 
         myCaretaker = new Caretaker();
-		Context context = getApplicationContext();
-		Toast toast = Toast.makeText(context, Integer.toString(myCaretaker.myMementos.size()), Toast.LENGTH_SHORT);
-		toast.show();
     }
 
 
@@ -63,6 +60,28 @@ public class MainActivity extends ActionBarActivity {
     }
     
     public static void writeCaretaker() {
+    	
     	myCaretaker.writeFile();
     }
+    
+    @Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
+	}
+
+
+	public void nowPlaying(View v){
+    	finish();
+    }
+	
+	public void exitApp(View v){
+		finish();
+	}
 }

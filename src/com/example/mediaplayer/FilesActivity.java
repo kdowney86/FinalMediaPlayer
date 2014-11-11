@@ -1,16 +1,10 @@
 package com.example.mediaplayer;
 
 import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 
 import android.support.v7.app.ActionBarActivity;
-import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,14 +12,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class FilesActivity extends ActionBarActivity implements Observer {
 
 	protected MediaFilesObserver mfo;
 	protected ListView filesList;
 	protected String mediaDirectoryPath;
-	//protected ArrayList<String> fileNames;
 	protected Song fileNames;
 	
 	@Override
@@ -100,5 +92,17 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 	public static String getFileExt(String FileName)
 	{       
 	     return FileName.substring((FileName.lastIndexOf(".") + 1), FileName.length());
+	}
+
+    @Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		super.onBackPressed();
+	}
+
+	@Override
+	protected void onStop() {
+		// TODO Auto-generated method stub
+		super.onStop();
 	}
 }
