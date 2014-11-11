@@ -15,7 +15,6 @@ public class Song {
 	}
 
 	public Song() {
-		// TODO Auto-generated constructor stub
 		this.name = "";
 		songGroup = new ArrayList<Song>();
 	}
@@ -27,16 +26,17 @@ public class Song {
 	public void remove(Song e) {
 		songGroup.remove(e);
 	}
-	
-	public Song get(int pos){		
-		return songGroup.get(pos);		
-	}
 
 	public List<Song> songGroup(){
 		return songGroup;
+	}
+	
+	public Song get(int pos){
+		return songGroup.get(pos);		
 	}
 
 	public String toString(){
 		return name;
 	}
 }
+
