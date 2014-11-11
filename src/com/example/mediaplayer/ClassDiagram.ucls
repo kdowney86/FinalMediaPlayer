@@ -1,263 +1,378 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.1.6" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true">  
-  <class id="1" language="java" name="com.example.mediaplayer.MainActivity" project="MediaPlayer" 
+  <class id="1" language="java" name="com.example.mediaplayer.VideoPlaylist" project="MediaPlayer" 
+    file="/MediaPlayer/src/com/example/mediaplayer/VideoPlaylist.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1313" y="378"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.example.mediaplayer.AudioPlaylist" project="MediaPlayer" 
+    file="/MediaPlayer/src/com/example/mediaplayer/AudioPlaylist.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1521" y="378"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.example.mediaplayer.MainActivity" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/MainActivity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="230" x="19" y="134"/>    
+    <position height="-1" width="-1" x="569" y="149"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="com.example.mediaplayer.MediaFilesObserver" project="MediaPlayer" 
+  <class id="4" language="java" name="com.example.mediaplayer.MediaFilesObserver" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/MediaFilesObserver.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="198" x="70" y="417"/>    
+    <position height="-1" width="-1" x="604" y="396"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="3" language="java" name="com.example.mediaplayer.State" project="MediaPlayer" 
+  <class id="5" language="java" name="com.example.mediaplayer.Memento" project="MediaPlayer" 
+    file="/MediaPlayer/src/com/example/mediaplayer/Memento.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="522" y="814"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="6" language="java" name="com.example.mediaplayer.State" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/State.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="120" x="979" y="875"/>    
+    <position height="-1" width="-1" x="1686" y="989"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <class id="4" language="java" name="com.example.mediaplayer.VideoPlayerActivity.VideoPauseState" project="MediaPlayer" 
+  <class id="7" language="java" name="com.example.mediaplayer.VideoPlayerActivity.VideoPauseState" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/VideoPlayerActivity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="211" x="242" y="700"/>    
+    <position height="-1" width="-1" x="994" y="805"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="com.example.mediaplayer.AudioPlayerActivity.AudioPlayState" project="MediaPlayer" 
+  <class id="8" language="java" name="com.example.mediaplayer.AudioPlayerActivity.AudioPlayState" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/AudioPlayerActivity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="201" x="1019" y="700"/>    
+    <position height="-1" width="-1" x="1766" y="805"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="com.example.mediaplayer.VideoPlayerActivity.VideoPlayState" project="MediaPlayer" 
+  <class id="9" language="java" name="com.example.mediaplayer.VideoPlayerActivity.VideoPlayState" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/VideoPlayerActivity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="201" x="493" y="700"/>    
+    <position height="-1" width="-1" x="1240" y="805"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="com.example.mediaplayer.VideoPlayerActivity.VideoStopState" project="MediaPlayer" 
+  <class id="10" language="java" name="com.example.mediaplayer.VideoPlayerActivity.VideoStopState" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/VideoPlayerActivity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="203" x="734" y="700"/>    
+    <position height="-1" width="-1" x="1482" y="805"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="com.example.mediaplayer.FilesActivity" project="MediaPlayer" 
+  <class id="11" language="java" name="com.example.mediaplayer.Song" project="MediaPlayer" 
+    file="/MediaPlayer/src/com/example/mediaplayer/Song.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1114" y="172"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.example.mediaplayer.FilesActivity" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/FilesActivity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="230" x="289" y="134"/>    
+    <position height="-1" width="-1" x="839" y="176"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="com.example.mediaplayer.VideoPlayerActivity" project="MediaPlayer" 
+  <class id="13" language="java" name="com.example.mediaplayer.VideoPlayerActivity" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/VideoPlayerActivity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="230" x="607" y="417"/>    
+    <position height="-1" width="-1" x="1074" y="450"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="com.example.mediaplayer.AudioPlayerActivity" project="MediaPlayer" 
+  <class id="14" language="java" name="com.example.mediaplayer.AudioPlayerActivity" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/AudioPlayerActivity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="230" x="1019" y="417"/>    
+    <position height="-1" width="-1" x="1781" y="513"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="com.example.mediaplayer.AudioPlayerActivity.AudioPauseState" 
+  <class id="15" language="java" name="com.example.mediaplayer.AudioPlayerActivity.AudioPauseState" 
     project="MediaPlayer" file="/MediaPlayer/src/com/example/mediaplayer/AudioPlayerActivity.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="135" width="211" x="979" y="134"/>    
+    <position height="-1" width="-1" x="1731" y="131"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="com.example.mediaplayer.AudioPlayerActivity.AudioStopState" project="MediaPlayer" 
+  <class id="16" language="java" name="com.example.mediaplayer.Caretaker" project="MediaPlayer" 
+    file="/MediaPlayer/src/com/example/mediaplayer/Caretaker.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="352" y="396"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.example.mediaplayer.Playlist" project="MediaPlayer" 
+    file="/MediaPlayer/src/com/example/mediaplayer/Playlist.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1403" y="140"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.example.mediaplayer.PlaylistsActivity" project="MediaPlayer" 
+    file="/MediaPlayer/src/com/example/mediaplayer/PlaylistsActivity.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="299" y="131"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.example.mediaplayer.AudioPlayerActivity.AudioStopState" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/AudioPlayerActivity.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="203" x="1230" y="134"/>    
+    <position height="-1" width="-1" x="1978" y="131"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <interface id="13" language="java" name="com.example.mediaplayer.Observer" project="MediaPlayer" 
+  <interface id="20" language="java" name="com.example.mediaplayer.Observer" project="MediaPlayer" 
     file="/MediaPlayer/src/com/example/mediaplayer/Observer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="132" x="70" y="700"/>    
+    <position height="-1" width="-1" x="783" y="778"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <nesting id="14">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="4"/>  
-  </nesting>  
-  <association id="15">    
-    <end type="SOURCE" refId="5" navigable="false">      
-      <attribute id="16" name="myAudioPlayerActivity"/>      
-      <multiplicity id="17" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="18">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="5"/>  
-  </nesting>  
-  <nesting id="19">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="11"/>  
-  </nesting>  
-  <association id="20">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="21" name="observers"/>      
-      <multiplicity id="22" minimum="0" maximum="2147483647"/>    
+  <association id="21">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="22" name="myVideoPlayerActivity"/>      
+      <multiplicity id="23" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="13" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="23">    
+  <nesting id="24">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="8"/>  
+  </nesting>  
+  <association id="25">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="24" name="myVideoPlayerActivity"/>      
-      <multiplicity id="25" minimum="0" maximum="1"/>    
+      <attribute id="26" name="observers"/>      
+      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="20" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <nesting id="26">    
+  <nesting id="28">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="15"/>  
+  </nesting>  
+  <association id="29">    
+    <bendpoint x="463" y="329"/>    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="30" name="myMemento"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <realization id="34">    
+    <bendpoint x="1635" y="329"/>    
+    <bendpoint x="1635" y="738"/>    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <association id="35">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="36" name="myVideoPlayerActivity"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="38">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <realization id="39">    
     <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="6"/>  
-  </nesting>  
-  <association id="27">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="28" name="mfo"/>      
-      <multiplicity id="29" minimum="0" maximum="1"/>    
+  </realization>  
+  <association id="40">    
+    <bendpoint x="1614" y="738"/>    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="41" name="currentState"/>      
+      <multiplicity id="42" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
+    <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="30">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <association id="31">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="32" name="myVideoPlayerActivity"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
+  <association id="43">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="44" name="myCaretaker"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
+    <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="34">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <realization id="35">    
-    <bendpoint x="298" y="417"/>    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="13"/>  
-  </realization>  
-  <association id="36">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="37" name="myVideoPlayerActivity"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="39">    
+  <realization id="46">    
     <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="12"/>  
-  </nesting>  
-  <realization id="40">    
-    <bendpoint x="1279" y="417"/>    
-    <bendpoint x="1279" y="700"/>    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="TARGET" refId="6"/>  
   </realization>  
-  <association id="41">    
-    <end type="SOURCE" refId="11" navigable="false">      
-      <attribute id="42" name="myAudioPlayerActivity"/>      
-      <multiplicity id="43" minimum="0" maximum="1"/>    
+  <association id="47">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="48" name="myAudioPlayerActivity"/>      
+      <multiplicity id="49" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="44">    
-    <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
+  <realization id="50">    
+    <bendpoint x="1926" y="329"/>    
+    <bendpoint x="1926" y="738"/>    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="6"/>  
   </realization>  
-  <nesting id="45">    
-    <end type="SOURCE" refId="9"/>    
+  <association id="51">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="52" name="myAudioPlayerActivity"/>      
+      <multiplicity id="53" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="54">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="55" name="fileNames"/>      
+      <multiplicity id="56" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="57">    
+    <end type="SOURCE" refId="13"/>    
     <end type="TARGET" refId="7"/>  
   </nesting>  
-  <association id="46">    
+  <association id="58">    
+    <end type="SOURCE" refId="19" navigable="false">      
+      <attribute id="59" name="myAudioPlayerActivity"/>      
+      <multiplicity id="60" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <nesting id="61">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="19"/>  
+  </nesting>  
+  <realization id="62">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </realization>  
+  <association id="63">    
+    <end type="SOURCE" refId="7" navigable="false">      
+      <attribute id="64" name="myVideoPlayerActivity"/>      
+      <multiplicity id="65" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="66">    
+    <bendpoint x="1110" y="294"/>    
+    <bendpoint x="1242" y="292"/>    
+    <bendpoint x="1240" y="174"/>    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="67" name="songGroup"/>      
+      <multiplicity id="68" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="69">    
+    <bendpoint x="1897" y="738"/>    
+    <end type="SOURCE" refId="14" navigable="false">      
+      <attribute id="70" name="currentState"/>      
+      <multiplicity id="71" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="72">    
+    <bendpoint x="733" y="329"/>    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="20"/>  
+  </realization>  
+  <association id="73">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="47" name="myAudioPlayerActivity"/>      
-      <multiplicity id="48" minimum="0" maximum="1"/>    
+      <attribute id="74" name="mfo"/>      
+      <multiplicity id="75" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
+    <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="49">    
-    <bendpoint x="967" y="700"/>    
-    <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="50" name="currentState"/>      
-      <multiplicity id="51" minimum="0" maximum="1"/>    
+  <nesting id="76">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="9"/>  
+  </nesting>  
+  <association id="77">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="78" name="myMementos"/>      
+      <multiplicity id="79" minimum="0" maximum="2147483647"/>    
     </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="52">    
-    <bendpoint x="1250" y="700"/>    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="53" name="currentState"/>      
-      <multiplicity id="54" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="55">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
-  <realization id="56">    
-    <bendpoint x="988" y="417"/>    
-    <bendpoint x="988" y="700"/>    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="3"/>  
-  </realization>  
+  <nesting id="80">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="10"/>  
+  </nesting>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

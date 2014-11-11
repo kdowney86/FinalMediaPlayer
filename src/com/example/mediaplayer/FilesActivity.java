@@ -25,13 +25,14 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 	protected MediaFilesObserver mfo;
 	protected ListView filesList;
 	protected String mediaDirectoryPath;
-	protected ArrayList<String> fileNames;
+	//protected ArrayList<String> fileNames;
+	protected Song fileNames;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_files);
-		mediaDirectoryPath = "/sdcard/Download/";
+		mediaDirectoryPath = "/sdcard/Download";
 		mfo = new MediaFilesObserver(mediaDirectoryPath);
 		mfo.registerObserver(this);
 		mfo.startWatching();
@@ -44,7 +45,7 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 					Intent myIntent = null;
-					String path = fileNames.get(position);
+					String path = fileNames.get(position).toString();
 					if (getFileExt(path).equals("mp3")) {
 						myIntent = new Intent(FilesActivity.this, AudioPlayerActivity.class);
 					} else {
@@ -85,14 +86,14 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 	public void refreshList(){
 		File downloadDirectory = new File(mediaDirectoryPath);
 	    File [] files = downloadDirectory.listFiles();
-	    fileNames= new ArrayList<String>();
+	    fileNames= new Song();
 		for(File f : files){
 			String extension = getFileExt(f.getPath());
 			if (extension.equals("mp3") || extension.equals("mp4")) {
-				fileNames.add(f.getPath());
+				fileNames.add(new Song(f.getPath()));
 			}
 		}
-		ArrayAdapter<String> filesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fileNames);
+		ArrayAdapter<Song> filesAdapter = new ArrayAdapter<Song>(this, android.R.layout.simple_list_item_1, fileNames.songGroup());
 		filesList.setAdapter(filesAdapter);
 	}
 	
