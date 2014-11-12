@@ -18,7 +18,7 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 	protected MediaFilesObserver mfo;
 	protected ListView filesList;
 	protected String mediaDirectoryPath;
-	protected Song fileNames;
+	protected Media fileNames;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -76,14 +76,14 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 	public void refreshList(){
 		File downloadDirectory = new File(mediaDirectoryPath);
 	    File [] files = downloadDirectory.listFiles();
-	    fileNames= new Song();
+	    fileNames= new Media();
 		for(File f : files){
 			String extension = getFileExt(f.getPath());
 			if (extension.equals("mp3") || extension.equals("mp4")) {
-				fileNames.add(new Song(f.getPath().substring(17)));
+				fileNames.add(new Media(f.getPath().substring(17)));
 			}
 		}
-		ArrayAdapter<Song> filesAdapter = new ArrayAdapter<Song>(this, android.R.layout.simple_list_item_1, fileNames.songGroup());
+		ArrayAdapter<Media> filesAdapter = new ArrayAdapter<Media>(this, android.R.layout.simple_list_item_1, fileNames.mediaGroup());
 		filesList.setAdapter(filesAdapter);
 	}
 	
