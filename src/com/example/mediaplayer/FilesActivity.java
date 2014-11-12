@@ -36,14 +36,12 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-					Intent myIntent = null;
+				
 					String path = "/sdcard/Download/"+fileNames.get(position).toString();
-					if (getFileExt(path).equals("mp3")) {
-						myIntent = new Intent(FilesActivity.this, AudioPlayerActivity.class);
-					} else {
-						myIntent = new Intent(FilesActivity.this, VideoPlayerActivity.class);
-					}
+					String type = getFileExt(fileNames.get(position).toString());
+					Intent myIntent = new Intent(FilesActivity.this, AudioPlayerActivity.class);
 					myIntent.putExtra("path", path);
+					myIntent.putExtra("type", type);
 					startActivity(myIntent);
 			}
 		});
@@ -89,9 +87,9 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 		filesList.setAdapter(filesAdapter);
 	}
 	
-	public static String getFileExt(String FileName)
+	public static String getFileExt(String fileName)
 	{       
-	     return FileName.substring((FileName.lastIndexOf(".") + 1), FileName.length());
+	     return fileName.substring((fileName.lastIndexOf(".") + 1), fileName.length());
 	}
 
     @Override

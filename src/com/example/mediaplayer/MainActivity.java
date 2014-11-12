@@ -16,12 +16,12 @@ public class MainActivity extends ActionBarActivity {
 	
 	protected Memento myMemento;
 	protected static Caretaker myCaretaker;
-
+	private Button filesButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button filesButton = (Button) findViewById(R.id.filesButton);
+        filesButton = (Button) findViewById(R.id.filesButton);
         filesButton.setOnClickListener(new OnClickListener(){
 
 			@Override

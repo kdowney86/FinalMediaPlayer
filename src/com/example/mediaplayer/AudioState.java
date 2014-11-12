@@ -1,6 +1,6 @@
 package com.example.mediaplayer;
 
-public interface State {
+public interface AudioState {
 	public void play();
 	public void pause();
 	public void stop();

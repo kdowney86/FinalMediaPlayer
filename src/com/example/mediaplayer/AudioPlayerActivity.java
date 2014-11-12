@@ -17,17 +17,20 @@ import android.widget.Chronometer;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 public class AudioPlayerActivity extends ActionBarActivity {
 
-	private State currentState;
-	private MediaPlayer mp;
+	protected AudioState currentState;
+	protected MediaPlayer mp;
+	protected VideoView vv;
 	private Button audioPlayButton;
 	private Button audioPauseButton;
 	private Button audioStopButton;
 	private String audioPath;
 	private SeekBar seekbar;
 	private Handler seekHandler = new Handler(); /** Called when the activity is first created. */ 
+	protected String type;
 	private int time = 0;
 	private TextView textview;
 	private TextView timer;
@@ -39,6 +42,7 @@ public class AudioPlayerActivity extends ActionBarActivity {
 
 		Intent myIntent = getIntent();
 		audioPath = myIntent.getStringExtra("path");
+		type = myIntent.getStringExtra("type");
 
 		audioPlayButton = (Button)findViewById(R.id.playButtonAudio);
 		audioPauseButton = (Button)findViewById(R.id.pauseButtonAudio);
@@ -48,24 +52,31 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		seekHandler = new Handler();
 		timer = (TextView)findViewById(R.id.seekBarUpdate);
 
-		currentState = new AudioPlayState(this);
+		currentState = new AudioPlayState(this, this.getApplicationContext(), type, audioPath);
 		mp = new MediaPlayer();
-		try {
-			mp.setDataSource(audioPath);
-			mp.prepare();
-			seekbar.setMax(mp.getDuration());
-		} catch (IllegalArgumentException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (SecurityException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IllegalStateException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		vv = (VideoView) findViewById(R.id.video_view);
+		//vv.setVisibility(0);
+		
+		if (type.equals("mp3")) {
+			try {
+				mp.setDataSource(audioPath);
+				mp.prepare();
+				seekbar.setMax(mp.getDuration());
+			} catch (IllegalArgumentException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SecurityException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IllegalStateException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} else {
+			vv.setVideoPath("audioPath");
 		}
 
 		restoreFromMemento();
@@ -74,18 +85,16 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		mp.start();
 		textview.setText(audioPath.substring(17));
 		seekUpdation();
+		
 
 		audioPlayButton.setOnClickListener(new OnClickListener(){
-
 			@Override
 			public void onClick(View v) {
 				AudioPlayerActivity.this.currentState.play();
 			}
-
 		});
 
 		audioPauseButton.setOnClickListener(new OnClickListener(){
-
 			@Override
 			public void onClick(View v) {
 				AudioPlayerActivity.this.currentState.pause();
@@ -94,12 +103,10 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		});
 
 		audioStopButton.setOnClickListener(new OnClickListener(){
-
 			@Override
 			public void onClick(View v) {
 				AudioPlayerActivity.this.currentState.stop();
 			}
-
 		});
 
 		try {
@@ -134,16 +141,14 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		else timer.setText(i/60000 + ":" + (i%60000)/1000);
 		seekHandler.postDelayed(run, 1000); 
 	} 
-
-    @Override
+	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
 	}
-
+	
 	@Override
-	protected void onStop() {
-		// TODO Auto-generated method stub
+	public void onStop() {
 		super.onStop();
 	}
 
@@ -183,99 +188,7 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void setState(State s) {
+	public void setState(AudioState s) {
 		this.currentState = s;
-	}
-
-	public class AudioPlayState implements State {
-
-		AudioPlayerActivity myAudioPlayerActivity;
-
-		public AudioPlayState(AudioPlayerActivity v) {
-			this.myAudioPlayerActivity = v;
-		}
-
-		@Override
-		public void play() {
-			Context context = getApplicationContext();
-			Toast toast = Toast.makeText(context, "audio is already playing", Toast.LENGTH_SHORT);
-			toast.show();
-		}
-
-		@Override
-		public void pause() {
-			myAudioPlayerActivity.setState(new AudioPauseState(myAudioPlayerActivity));
-			myAudioPlayerActivity.mp.pause();
-			String pos = Integer.toString(myAudioPlayerActivity.mp.getCurrentPosition());
-			MainActivity.getCaretaker().addMemento(new Memento(audioPath, pos));
-			MainActivity.writeCaretaker();
-		}
-
-		@Override
-		public void stop() {
-			myAudioPlayerActivity.setState(new AudioStopState(myAudioPlayerActivity));
-			myAudioPlayerActivity.mp.seekTo(0);
-			myAudioPlayerActivity.mp.pause();
-		}
-	}
-
-	public class AudioPauseState implements State {
-
-		AudioPlayerActivity myAudioPlayerActivity;
-
-		public AudioPauseState(AudioPlayerActivity v) {
-			this.myAudioPlayerActivity = v;
-		}
-
-		@Override
-		public void play() {
-			myAudioPlayerActivity.setState(new AudioPlayState(myAudioPlayerActivity));
-			myAudioPlayerActivity.mp.start();
-		}
-
-		@Override
-		public void pause() {
-			Context context = getApplicationContext();
-			Toast toast = Toast.makeText(context, "audio is already paused", Toast.LENGTH_SHORT);
-			toast.show();
-		}
-
-		@Override
-		public void stop() {
-			myAudioPlayerActivity.setState(new AudioStopState(myAudioPlayerActivity));
-			myAudioPlayerActivity.mp.seekTo(0);
-			myAudioPlayerActivity.mp.pause();
-		}
-	}
-
-	public class AudioStopState implements State {
-
-		AudioPlayerActivity myAudioPlayerActivity;
-
-		public AudioStopState(AudioPlayerActivity v) {
-			this.myAudioPlayerActivity = v;
-		}
-
-		@Override
-		public void play() {
-			myAudioPlayerActivity.setState(new AudioPlayState(myAudioPlayerActivity));
-			myAudioPlayerActivity.mp.start();
-		}
-
-		@Override
-		public void pause() {
-			myAudioPlayerActivity.setState(new AudioPauseState(myAudioPlayerActivity));
-			myAudioPlayerActivity.mp.pause();
-			String pos = Integer.toString(myAudioPlayerActivity.mp.getCurrentPosition());
-			MainActivity.getCaretaker().addMemento(new Memento(audioPath, pos));
-			MainActivity.writeCaretaker();
-		}
-
-		@Override
-		public void stop() {
-			Context context = getApplicationContext();
-			Toast toast = Toast.makeText(context, "audio is already stopped", Toast.LENGTH_SHORT);
-			toast.show();
-		}		
 	}
 }
