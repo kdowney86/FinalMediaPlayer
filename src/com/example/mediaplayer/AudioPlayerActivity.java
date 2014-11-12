@@ -56,12 +56,15 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		mp = new MediaPlayer();
 		vv = (VideoView) findViewById(R.id.video_view);
 		//vv.setVisibility(0);
-		
+		restoreFromMemento();
+
 		if (type.equals("mp3")) {
 			try {
 				mp.setDataSource(audioPath);
 				mp.prepare();
 				seekbar.setMax(mp.getDuration());
+				mp.seekTo(time);
+				mp.start();
 			} catch (IllegalArgumentException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
@@ -76,16 +79,13 @@ public class AudioPlayerActivity extends ActionBarActivity {
 				e1.printStackTrace();
 			}
 		} else {
-			vv.setVideoPath("audioPath");
+			vv.setVideoPath(audioPath);
+			vv.start();
 		}
 
-		restoreFromMemento();
-
-		mp.seekTo(time);
-		mp.start();
 		textview.setText(audioPath.substring(17));
 		seekUpdation();
-		
+
 
 		audioPlayButton.setOnClickListener(new OnClickListener(){
 			@Override
@@ -108,22 +108,6 @@ public class AudioPlayerActivity extends ActionBarActivity {
 				AudioPlayerActivity.this.currentState.stop();
 			}
 		});
-
-		try {
-			mp.setDataSource(audioPath);
-		} catch (IllegalArgumentException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SecurityException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 
 	Runnable run = new Runnable() { 
@@ -146,7 +130,7 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		// TODO Auto-generated method stub
 		super.onBackPressed();
 	}
-	
+
 	@Override
 	public void onStop() {
 		super.onStop();

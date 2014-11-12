@@ -16,6 +16,7 @@ public class MediaStateAdapter implements AudioState {
 	@Override
 	public void play() {
 		if (myType.equals("mp4")) {
+			currentAdvancedState.playVideo();
 			currentAdvancedState = new VideoPlayState(a, a.getApplicationContext(), myPath);
 		}
 	}
@@ -23,6 +24,7 @@ public class MediaStateAdapter implements AudioState {
 	@Override
 	public void pause() {
 		if (myType.equals("mp4")) {
+			currentAdvancedState.pauseVideo();
 			currentAdvancedState = new VideoPauseState(a, a.getApplicationContext(), myPath);
 		}
 	}
@@ -30,6 +32,7 @@ public class MediaStateAdapter implements AudioState {
 	@Override
 	public void stop() {
 		if (myType.equals("mp4")) {
+			currentAdvancedState.stopVideo();
 			currentAdvancedState = new VideoStopState(a, a.getApplicationContext(), myPath);
 		}
 	}
