@@ -14,9 +14,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/nowPlayingButton"
-        android:layout_alignLeft="@+id/nowPlayingButton"
+        android:layout_alignRight="@+id/nowPlayingButton"
         android:layout_marginBottom="16dp"
-        android:background="@drawable/songlist" />
+        android:background="@drawable/medialist" />
 
     <Button
         android:id="@+id/nowPlayingButton"

@@ -37,7 +37,7 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 					Intent myIntent = null;
-					String path = fileNames.get(position).toString();
+					String path = "/sdcard/Download/"+fileNames.get(position).toString();
 					if (getFileExt(path).equals("mp3")) {
 						myIntent = new Intent(FilesActivity.this, AudioPlayerActivity.class);
 					} else {
@@ -82,7 +82,7 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 		for(File f : files){
 			String extension = getFileExt(f.getPath());
 			if (extension.equals("mp3") || extension.equals("mp4")) {
-				fileNames.add(new Song(f.getPath()));
+				fileNames.add(new Song(f.getPath().substring(17)));
 			}
 		}
 		ArrayAdapter<Song> filesAdapter = new ArrayAdapter<Song>(this, android.R.layout.simple_list_item_1, fileNames.songGroup());
