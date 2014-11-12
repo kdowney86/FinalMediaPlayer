@@ -9,7 +9,7 @@
     tools:context="com.example.mediaplayer.VideoPlayerActivity" >
 
     <VideoView
-        android:id="@+id/videoView1"
+        android:id="@+id/video_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -20,7 +20,7 @@
         android:id="@+id/mediaController1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/videoView1"
+        android:layout_alignLeft="@+id/video_view"
         android:layout_alignParentTop="true"
         android:layout_marginTop="30dp" >
     </MediaController>
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/pauseButtonVideo"
         android:layout_alignBottom="@+id/pauseButtonVideo"
-        android:layout_alignRight="@+id/videoView1"
+        android:layout_alignRight="@+id/video_view"
         android:text="Stop" />
 
 </RelativeLayout>

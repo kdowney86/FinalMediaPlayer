@@ -43,14 +43,11 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-					Intent myIntent = null;
 					String path = fileNames.get(position);
-					if (getFileExt(path).equals("mp3")) {
-						myIntent = new Intent(FilesActivity.this, AudioPlayerActivity.class);
-					} else {
-						myIntent = new Intent(FilesActivity.this, VideoPlayerActivity.class);
-					}
+					String type = getFileExt(fileNames.get(position));
+					Intent myIntent = new Intent(FilesActivity.this, AudioPlayerActivity.class);
 					myIntent.putExtra("path", path);
+					myIntent.putExtra("type", type);
 					startActivity(myIntent);
 			}
 		});
@@ -94,6 +91,16 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 		}
 		ArrayAdapter<String> filesAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fileNames);
 		filesList.setAdapter(filesAdapter);
+	}
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+	}
+	
+	@Override
+	public void onStop() {
+		super.onStop();
 	}
 	
 	public static String getFileExt(String FileName)

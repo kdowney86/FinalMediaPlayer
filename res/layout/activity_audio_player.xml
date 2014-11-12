@@ -80,4 +80,13 @@
         android:text="0.00"
         android:textColor="#F00" />
 
+    <VideoView
+        android:id="@+id/video_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignTop="@+id/imageView1"
+        android:layout_marginTop="22dp" />
+
 </RelativeLayout>

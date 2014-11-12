@@ -16,12 +16,12 @@ public class MainActivity extends ActionBarActivity {
 	
 	protected Memento myMemento;
 	protected static Caretaker myCaretaker;
-
+	private Button filesButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button filesButton = (Button) findViewById(R.id.filesButton);
+        filesButton = (Button) findViewById(R.id.filesButton);
         filesButton.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -33,9 +33,9 @@ public class MainActivity extends ActionBarActivity {
         });
                 
         myCaretaker = new Caretaker();
-		Context context = getApplicationContext();
+		/*Context context = getApplicationContext();
 		Toast toast = Toast.makeText(context, Integer.toString(myCaretaker.myMementos.size()), Toast.LENGTH_SHORT);
-		toast.show();
+		toast.show();*/
     }
 
 
@@ -64,5 +64,19 @@ public class MainActivity extends ActionBarActivity {
     
     public static void writeCaretaker() {
     	myCaretaker.writeFile();
+    }
+
+	@Override
+	public void onBackPressed() {
+		super.onBackPressed();
+	}
+	
+	@Override
+	public void onStop() {
+		super.onDestroy();
+	}
+	
+	public void exit(View v){
+    	super.onStop();
     }
 }
