@@ -10,29 +10,29 @@
     android:background="@android:color/black">
 
     <Button
+        android:id="@+id/playlistsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/nowplaying"
+        android:onClick="playlists" />
+
+    <Button
         android:id="@+id/filesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/nowPlayingButton"
-        android:layout_alignRight="@+id/nowPlayingButton"
+        android:layout_above="@+id/playlistsButton"
+        android:layout_alignLeft="@+id/playlistsButton"
         android:layout_marginBottom="16dp"
         android:background="@drawable/medialist" />
-
-    <Button
-        android:id="@+id/nowPlayingButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/bExit"
-        android:layout_centerVertical="true"
-        android:background="@drawable/nowplaying" 
-        android:onClick="nowPlaying"/>
 
     <Button
         android:id="@+id/bExit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/nowPlayingButton"
-        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/playlistsButton"
+        android:layout_below="@+id/playlistsButton"
         android:layout_marginTop="16dp"
         android:background="@drawable/exit"
         android:onClick="exitApp" />

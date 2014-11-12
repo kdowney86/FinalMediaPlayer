@@ -1,23 +1,22 @@
 package com.example.mediaplayer;
 
-import java.io.File;
-import java.util.ArrayList;
-
 public abstract class Playlist {
-	protected ArrayList<File> files;
+	protected Media media;
 	
-	public Playlist(ArrayList<File> f) {
-		this.files = f;
+	public Playlist(Media m) {
+		this.media = m;
 	}
 	
-	public void addFile(File f) {
-		files.add(f);
+	public void addMedia(Media m) {
+		media.add(m);
 	}
 	
-	public void removeFile(File f){
-		files.add(f);
+	public void removeMedia(Media m){
+		media.remove(m);
 	}
 	
 	public abstract void play();
+	public abstract void next();
+	public abstract void previous();
 
 }

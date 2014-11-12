@@ -1,21 +1,27 @@
 package com.example.mediaplayer;
 
-import java.io.File;
-import java.util.ArrayList;
-
 public class VideoPlaylist extends Playlist {
 
-	public VideoPlaylist(ArrayList<File> f) {
-		super(f);
-		// TODO Auto-generated constructor stub
+	public VideoPlaylist(Media m) {
+		super(m);
 	}
-	
+
 	@Override
 	public void play() {
+		// TODO Auto-generated method stub
 		
 	}
-	
-	
-	
+
+	@Override
+	public void next() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void previous() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }

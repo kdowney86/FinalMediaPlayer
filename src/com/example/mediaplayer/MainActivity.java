@@ -22,6 +22,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         filesButton = (Button) findViewById(R.id.filesButton);
+        
         filesButton.setOnClickListener(new OnClickListener(){
 
 			@Override
@@ -76,6 +77,10 @@ public class MainActivity extends ActionBarActivity {
 		super.onStop();
 	}
 
+    public void playlists(View v){
+    	Intent playlistsIntent = new Intent(MainActivity.this, PlaylistsActivity.class);
+		startActivity(playlistsIntent);
+    }
 
 	public void nowPlaying(View v){
     	finish();
