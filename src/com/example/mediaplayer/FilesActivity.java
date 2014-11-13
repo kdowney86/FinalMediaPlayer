@@ -40,7 +40,7 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 					String path = "/sdcard/Download/"+fileNames.get(position).toString();
 					String type = getFileExt(fileNames.get(position).toString());
 					Intent myIntent = new Intent(FilesActivity.this, AudioPlayerActivity.class);
-					myIntent.putExtra("path", path);
+					myIntent.putExtra("media", path);
 					myIntent.putExtra("type", type);
 					startActivity(myIntent);
 			}

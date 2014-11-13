@@ -31,7 +31,7 @@ public class AudioPlayerActivity extends ActionBarActivity {
 	private SeekBar seekbar;
 	private Handler seekHandler = new Handler(); /** Called when the activity is first created. */ 
 	protected String type;
-	private int time = 0;
+	private int time = 0, counter = 0;
 	private TextView textview;
 	private TextView timer;
 
@@ -51,11 +51,12 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		seekbar = (SeekBar)findViewById(R.id.musicSeekBar);
 		seekHandler = new Handler();
 		timer = (TextView)findViewById(R.id.seekBarUpdate);
+		counter = 0;
 
 		currentState = new AudioPlayState(this, this.getApplicationContext(), type, audioPath);
 		mp = new MediaPlayer();
 		vv = (VideoView) findViewById(R.id.video_view);
-		//vv.setVisibility(0);
+		
 		restoreFromMemento();
 
 		if (type.equals("mp3")) {
@@ -80,12 +81,25 @@ public class AudioPlayerActivity extends ActionBarActivity {
 			}
 		} else {
 			vv.setVideoPath(audioPath);
+			seekbar.setMax(vv.getDuration());
 			vv.start();
 		}
 
 		textview.setText(audioPath.substring(17));
-		seekUpdation();
+		seekUpdation(type);
 
+		/*mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+		    @Override
+		    public void onCompletion(MediaPlayer mp) {
+		        counter++;
+		        if (counter < files.size()) {
+		            mediaPlayer.setDataSource(files.get(counter));
+		            mediaPlayer.prepare();
+		            mediaPlayer.start();
+		        }
+		    }    
+		});*/
 
 		audioPlayButton.setOnClickListener(new OnClickListener(){
 			@Override
@@ -113,18 +127,23 @@ public class AudioPlayerActivity extends ActionBarActivity {
 	Runnable run = new Runnable() { 
 		@Override 
 		public void run() { 
-			seekUpdation(); 
+			seekUpdation(type); 
 		} 
 	};
 
+	int i;
 	//sets the textView Timer and updates seek bar
-	public void seekUpdation() { 
-		int i = mp.getCurrentPosition();
+	public void seekUpdation(String type) {
+		if(type.equals("mp3")){i = mp.getCurrentPosition();}
+		else{i = vv.getCurrentPosition();}
+		
 		seekbar.setProgress(i);
+		
 		if(i%60000/1000 < 10) timer.setText(i/60000 + ":0" + (i%60000)/1000);
 		else timer.setText(i/60000 + ":" + (i%60000)/1000);
 		seekHandler.postDelayed(run, 1000); 
 	} 
+	
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub

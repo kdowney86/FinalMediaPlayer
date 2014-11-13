@@ -37,14 +37,14 @@ public class PlaylistsActivity extends ActionBarActivity implements Observer {
 		mfo = new MediaFilesObserver(mediaDirectoryPath);
 		mfo.registerObserver(this);
 		mfo.startWatching();
-		filesList = (ListView)findViewById(R.id.listPlaylist);
+		filesList = (ListView)findViewById(R.id.listPlaylist2);
 		refreshList();
 		
 		filesList.setOnItemClickListener(new OnItemClickListener(){
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				
+								
 				String path = "/sdcard/Download/"+fileNames.get(position).toString();
 				String type = getFileExt(fileNames.get(position).toString());
 				medialist.add(new Media(path));
@@ -98,7 +98,9 @@ public class PlaylistsActivity extends ActionBarActivity implements Observer {
 	}
 
 	public void addToPlaylist(View v){
-		playlist = playlistFactory.getPlaylist(medialist);
+		//playlist = playlistFactory.getPlaylist(medialist);
+    	Intent intent = new Intent(PlaylistsActivity.this, PlaylistOptionsActivity.class);
+		startActivity(intent);
 	}
 	
     @Override
