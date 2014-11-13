@@ -39,6 +39,9 @@
             android:name=".PlaylistsActivity"
             android:label="@string/title_activity_playlists" >
         </activity>
+        <activity
+            android:name=".PlaylistOptionsActivity" >
+        </activity>
     </application>
 
 </manifest>
