@@ -9,7 +9,7 @@
     tools:context="com.example.mediaplayer.PlaylistsActivity" >
 
     <ListView
-        android:id="@+id/filesList2"
+        android:id="@+id/listPlaylist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/addPlaylistButton"

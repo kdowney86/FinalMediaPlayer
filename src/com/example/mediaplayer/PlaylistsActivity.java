@@ -37,7 +37,7 @@ public class PlaylistsActivity extends ActionBarActivity implements Observer {
 		mfo = new MediaFilesObserver(mediaDirectoryPath);
 		mfo.registerObserver(this);
 		mfo.startWatching();
-		filesList = (ListView)findViewById(R.id.filesList2);
+		filesList = (ListView)findViewById(R.id.listPlaylist);
 		refreshList();
 		
 		filesList.setOnItemClickListener(new OnItemClickListener(){
