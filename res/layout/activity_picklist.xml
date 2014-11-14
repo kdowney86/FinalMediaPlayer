@@ -10,8 +10,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:onClick="videoList"
-        android:text="Video Playlist" />
+        android:onClick="onClick"
+        android:text="Videolist" />
 
     <Button
         android:id="@+id/bSongList"
@@ -21,7 +21,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="49dp"
-        android:onClick="songList"
-        android:text="Song Playlist" />
+        android:onClick="onClick"
+        android:text="Songlist" />
 
 </RelativeLayout>

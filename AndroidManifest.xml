@@ -39,8 +39,15 @@
             android:name=".PlaylistsActivity"
             android:label="@string/title_activity_playlists" >
         </activity>
+        <activity android:name=".MediaOptionsActivity" >
+        </activity>
         <activity
-            android:name=".PlaylistOptionsActivity" >
+            android:name=".AudioListActivity"
+            android:label="@string/title_activity_audio_list" >
+        </activity>
+        <activity
+            android:name=".VideoListActivity"
+            android:label="@string/title_activity_video_list" >
         </activity>
     </application>
 

@@ -1,23 +1,17 @@
 package com.example.mediaplayer;
 
-import java.io.File;
-
 import android.support.v7.app.ActionBarActivity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class FilesActivity extends ActionBarActivity implements Observer {
+public abstract class ListActivity extends ActionBarActivity implements Observer {
 
 	protected MediaFilesObserver mfo;
 	protected ListView filesList;
 	protected String mediaDirectoryPath;
+	public static Media fileToPlay;
 	protected Media fileNames;
 	
 	@Override
@@ -25,26 +19,12 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_files);
 		mediaDirectoryPath = "/sdcard/Download";
+		fileToPlay  = new Media();
 		mfo = new MediaFilesObserver(mediaDirectoryPath);
 		mfo.registerObserver(this);
 		mfo.startWatching();
 		filesList = (ListView)findViewById(R.id.filesList);
 		refreshList();
-		
-		filesList.setOnItemClickListener(new OnItemClickListener(){
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				
-					String path = "/sdcard/Download/"+fileNames.get(position).toString();
-					String type = getFileExt(fileNames.get(position).toString());
-					Intent myIntent = new Intent(FilesActivity.this, AudioPlayerActivity.class);
-					myIntent.putExtra("media", path);
-					myIntent.putExtra("type", type);
-					startActivity(myIntent);
-			}
-		});
 	}
 
 	@Override
@@ -68,24 +48,11 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 
 	@Override
 	public void update(int event, String path) {
-		// TODO Auto-generated method stub
 		refreshList();
 		
 	}
 	
-	public void refreshList(){
-		File downloadDirectory = new File(mediaDirectoryPath);
-	    File [] files = downloadDirectory.listFiles();
-	    fileNames= new Media();
-		for(File f : files){
-			String extension = getFileExt(f.getPath());
-			if (extension.equals("mp3") || extension.equals("mp4")) {
-				fileNames.add(new Media(f.getPath().substring(17)));
-			}
-		}
-		ArrayAdapter<Media> filesAdapter = new ArrayAdapter<Media>(this, android.R.layout.simple_list_item_1, fileNames.mediaGroup());
-		filesList.setAdapter(filesAdapter);
-	}
+	public abstract void refreshList();
 	
 	public static String getFileExt(String fileName)
 	{       
@@ -94,13 +61,11 @@ public class FilesActivity extends ActionBarActivity implements Observer {
 
     @Override
 	public void onBackPressed() {
-		// TODO Auto-generated method stub
 		super.onBackPressed();
 	}
 
 	@Override
 	protected void onStop() {
-		// TODO Auto-generated method stub
 		super.onStop();
 	}
 }

@@ -11,7 +11,6 @@ public class MediaFilesObserver extends FileObserver {
 	public MediaFilesObserver(String path) {
 		super(path, FileObserver.ALL_EVENTS);
 		observers = new ArrayList<Observer>();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public void registerObserver(Observer o){

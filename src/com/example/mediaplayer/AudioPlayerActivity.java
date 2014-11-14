@@ -21,8 +21,9 @@ import android.widget.VideoView;
 
 public class AudioPlayerActivity extends ActionBarActivity {
 
+	private Media fileList;
 	protected AudioState currentState;
-	protected MediaPlayer mp;
+	public static MediaPlayer mp;
 	protected VideoView vv;
 	private Button audioPlayButton;
 	private Button audioPauseButton;
@@ -39,11 +40,10 @@ public class AudioPlayerActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_audio_player);
-
-		Intent myIntent = getIntent();
-		audioPath = myIntent.getStringExtra("path");
-		type = myIntent.getStringExtra("type");
-
+		fileList = ListActivity.fileToPlay;
+		audioPath = "/sdcard/Download/" + fileList.get(counter).toString();
+		type = fileList.get(counter).type();
+		
 		audioPlayButton = (Button)findViewById(R.id.playButtonAudio);
 		audioPauseButton = (Button)findViewById(R.id.pauseButtonAudio);
 		audioStopButton = (Button)findViewById(R.id.stopButtonAudio);
@@ -51,55 +51,33 @@ public class AudioPlayerActivity extends ActionBarActivity {
 		seekbar = (SeekBar)findViewById(R.id.musicSeekBar);
 		seekHandler = new Handler();
 		timer = (TextView)findViewById(R.id.seekBarUpdate);
-		counter = 0;
 
 		currentState = new AudioPlayState(this, this.getApplicationContext(), type, audioPath);
 		mp = new MediaPlayer();
 		vv = (VideoView) findViewById(R.id.video_view);
-		
-		restoreFromMemento();
 
-		if (type.equals("mp3")) {
-			try {
-				mp.setDataSource(audioPath);
-				mp.prepare();
-				seekbar.setMax(mp.getDuration());
-				mp.seekTo(time);
-				mp.start();
-			} catch (IllegalArgumentException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (SecurityException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IllegalStateException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		} else {
-			vv.setVideoPath(audioPath);
-			seekbar.setMax(vv.getDuration());
-			vv.start();
-		}
+		restoreFromMemento();
+		startFile(fileList.get(counter));
 
 		textview.setText(audioPath.substring(17));
 		seekUpdation(type);
 
-		/*mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+		mp.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
-		    @Override
-		    public void onCompletion(MediaPlayer mp) {
-		        counter++;
-		        if (counter < files.size()) {
-		            mediaPlayer.setDataSource(files.get(counter));
-		            mediaPlayer.prepare();
-		            mediaPlayer.start();
-		        }
-		    }    
-		});*/
+			@Override
+			public void onCompletion(MediaPlayer mp) {
+				counter++;
+
+				if (counter < fileList.mediaGroup().size()) {
+					
+					type = fileList.get(counter).type();
+					audioPath = "/sdcard/Download/" + fileList.get(counter).toString();
+					startFile(fileList.get(counter));
+				}
+				textview.setText(audioPath.substring(17));
+				seekUpdation(type);
+			}    
+		});
 
 		audioPlayButton.setOnClickListener(new OnClickListener(){
 			@Override
@@ -136,14 +114,43 @@ public class AudioPlayerActivity extends ActionBarActivity {
 	public void seekUpdation(String type) {
 		if(type.equals("mp3")){i = mp.getCurrentPosition();}
 		else{i = vv.getCurrentPosition();}
-		
+
 		seekbar.setProgress(i);
-		
+
 		if(i%60000/1000 < 10) timer.setText(i/60000 + ":0" + (i%60000)/1000);
 		else timer.setText(i/60000 + ":" + (i%60000)/1000);
 		seekHandler.postDelayed(run, 1000); 
 	} 
-	
+
+	public void startFile(Media media){
+
+		if (type.equals("mp3")) {
+			try {
+				mp.setDataSource(audioPath);
+				mp.prepare();
+				seekbar.setMax(mp.getDuration());
+				mp.seekTo(time);
+				mp.start();
+			} catch (IllegalArgumentException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (SecurityException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IllegalStateException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} else {
+			vv.setVideoPath(audioPath);
+			seekbar.setMax(vv.getDuration());
+			vv.start();
+		}
+	}
+
 	@Override
 	public void onBackPressed() {
 		// TODO Auto-generated method stub

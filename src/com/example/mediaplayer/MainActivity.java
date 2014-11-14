@@ -22,17 +22,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         filesButton = (Button) findViewById(R.id.filesButton);
-        
-        filesButton.setOnClickListener(new OnClickListener(){
-
-			@Override
-			public void onClick(View v) {
-				Intent filesActivityIntent = new Intent(MainActivity.this, FilesActivity.class);
-				startActivity(filesActivityIntent);
-			}
-        	
-        });
-                
+                     
         myCaretaker = new Caretaker();
     }
 
@@ -67,23 +57,17 @@ public class MainActivity extends ActionBarActivity {
     
     @Override
 	public void onBackPressed() {
-		// TODO Auto-generated method stub
 		super.onBackPressed();
 	}
 
 	@Override
 	protected void onStop() {
-		// TODO Auto-generated method stub
 		super.onStop();
 	}
 
     public void playlists(View v){
-    	Intent playlistsIntent = new Intent(MainActivity.this, PlaylistsActivity.class);
-		startActivity(playlistsIntent);
-    }
-
-	public void nowPlaying(View v){
-    	finish();
+    	Intent intent = new Intent(MainActivity.this, MediaOptionsActivity.class);
+		startActivity(intent);
     }
 	
 	public void exitApp(View v){

@@ -15,7 +15,6 @@ public class Media {
 	}
 
 	public Media() {
-		// TODO Auto-generated constructor stub
 		this.name = "";
 		mediaGroup = new ArrayList<Media>();
 	}
@@ -25,7 +24,7 @@ public class Media {
 	}
 
 	public String type(){
-		return name.substring(name.lastIndexOf('.'));
+		return name.substring(name.lastIndexOf('.')+1);
 	}
 	
 	public void remove(Media e) {
