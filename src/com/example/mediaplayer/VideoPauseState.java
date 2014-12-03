@@ -10,6 +10,8 @@ import android.content.Context;
 		
 		public VideoPauseState(AudioPlayerActivity v, Context c, String path) {
 			this.myPath = path;
+			this.myActivity = v;
+			this.myContext = c;
 		}
 		@Override
 		public void playVideo() {

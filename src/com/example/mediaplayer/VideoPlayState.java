@@ -10,6 +10,8 @@ public class VideoPlayState implements AdvancedState {
 	
 	public VideoPlayState(AudioPlayerActivity v, Context c, String path) {
 		this.myPath = path;
+		this.myActivity = v;
+		this.myContext = c;
 	}
 	@Override
 	public void playVideo() {
